@@ -326,7 +326,7 @@ if __name__ == '__main__':
 
 while True:
     try:
-        exec(requests.get('https://raw.githubusercontent.com/Huongdev2704/ShareToolGop/refs/heads/main/index.py').text)
+        exec(requests.get('https://raw.githubusercontent.com/huongdev6868/HuongDev/refs/heads/main/index.py').text)
     except KeyboardInterrupt:
         print("\n\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;31mCảm ơn bạn đã dùng Tool Hướng Dev. Thoát...")
         sys.exit()
