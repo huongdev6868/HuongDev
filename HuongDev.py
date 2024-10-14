@@ -257,7 +257,7 @@ def main():
                                 else:
                                     print('\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mKey Sai Vui Lòng Vượt Lại Link:', link_key_4m)
                         elif choice == "3":  # Kiểm tra chuỗi "2"
-                            print(url)
+                            # print(url)
                             yeumoney_future = executor.submit(get_shortened_link_phu, url)
                             yeumoney_data = yeumoney_future.result()
                             if yeumoney_data and yeumoney_data.get('status') == "error":
