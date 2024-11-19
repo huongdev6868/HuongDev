@@ -186,24 +186,24 @@ while True:
 
      
   print(f'\033[1;97mĐang \033[1;96mLấy \033[1;95mNhiệm \033[1;91mVụ\033[1;93m Follow',end="\r")    
-  # while True:
-  #     try:  
-  #         nhanjob = nhannv(account_id)
-  #         break
-  #     except:
-  #         time.sleep(1)  # Thêm thời gian chờ 1 giây trước khi thử lại
-  #         pass
   while True:
-    try:
-        nhanjob = nhannv(account_id)
-        if nhanjob:  # Kiểm tra nếu nhanjob tồn tại và không rỗng
-            break  # Thoát khỏi vòng lặp nếu nhận được nhiệm vụ thành công
-        else:
-            print("\033[1;31mHệ thống đang tính toán jobs dành cho bạn,bấm load jobs lại sau 10 giây !")
-    except:
-        print("\033[1;31mHệ thống đang tính toán jobs dành cho bạn,bấm load jobs lại sau 10 giây !")
-        pass
-    time.sleep(1)
+      try:  
+          nhanjob = nhannv(account_id)
+          break
+      except:
+          time.sleep(1)  # Thêm thời gian chờ 1 giây trước khi thử lại
+          pass
+  # while True:
+  #   try:
+  #       nhanjob = nhannv(account_id)
+  #       if nhanjob:  # Kiểm tra nếu nhanjob tồn tại và không rỗng
+  #           break  # Thoát khỏi vòng lặp nếu nhận được nhiệm vụ thành công
+  #       else:
+  #           print("\033[1;31mHệ thống đang tính toán jobs dành cho bạn,bấm load jobs lại sau 10 giây !")
+  #   except:
+  #       print("\033[1;31mHệ thống đang tính toán jobs dành cho bạn,bấm load jobs lại sau 10 giây !")
+  #       pass
+  #   time.sleep(1)
   if(nhanjob["status"] == 200):
     ads_id = nhanjob["data"]["id"]
     link = nhanjob["data"]["link"]
