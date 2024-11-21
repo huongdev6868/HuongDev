@@ -206,8 +206,8 @@ def main():
                                 return
                             else:
                                 link_key_yeumoney = yeumoney_data.get('shortenedUrl')
-                                token_link4m = '66358d4299686f733016d95a'
-                                link4m_response = requests.get(f'https://link4m.co/api-shorten/v2?api={token_link4m}&format=json&url={link_key_yeumoney}', timeout=5)
+                                token_link4m = 'f7e85811bc83948a0a66e121fa312afc03472eabd86a53c4bc9ec86662a480c8'
+                                link4m_response = requests.get(f'https://yeumoney.com/QL_api.php?token={token_link4m}&format=json&url={link_key_yeumoney}')
                                 print("\033[1;31mLưu Ý: \033[1;33mTool Free Nhé Cả Nhà Yêu \033[1;91m❣\033[1;32m")
                                 
                                 if link4m_response.status_code == 200:
@@ -232,6 +232,7 @@ def main():
                                 else:
                                     print('\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mKey Sai Vui Lòng Vượt Lại Link:', link_key_4m)
                         elif choice == "2":  # Kiểm tra chuỗi "2"
+                            print(url)
                             yeumoney_future = executor.submit(get_shortened_link_phu, url)
                             yeumoney_data = yeumoney_future.result()
                             if yeumoney_data and yeumoney_data.get('status') == "error":
@@ -265,7 +266,7 @@ def main():
                                 else:
                                     print('\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mKey Sai Vui Lòng Vượt Lại Link:', link_key_4m)
                         elif choice == "3":  # Kiểm tra chuỗi "2"
-                            # print(url)
+                            print(url)
                             yeumoney_future = executor.submit(get_shortened_link_phu, url)
                             yeumoney_data = yeumoney_future.result()
                             if yeumoney_data and yeumoney_data.get('status') == "error":
