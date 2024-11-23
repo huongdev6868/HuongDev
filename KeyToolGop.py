@@ -206,8 +206,8 @@ def main():
                                 return
                             else:
                                 link_key_yeumoney = yeumoney_data.get('shortenedUrl')
-                                token_link4m = 'f7e85811bc83948a0a66e121fa312afc03472eabd86a53c4bc9ec86662a480c8'
-                                link4m_response = requests.get(f'https://yeumoney.com/QL_api.php?token={token_link4m}&format=json&url={link_key_yeumoney}')
+                                token_link4m = '66358d4299686f733016d95a'
+                                link4m_response = requests.get(f'https://link4m.co/api-shorten/v2?api={token_link4m}&format=json&url={link_key_yeumoney}', timeout=5)
                                 print("\033[1;31mLưu Ý: \033[1;33mTool Free Nhé Cả Nhà Yêu \033[1;91m❣\033[1;32m")
                                 
                                 if link4m_response.status_code == 200:
@@ -232,7 +232,6 @@ def main():
                                 else:
                                     print('\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mKey Sai Vui Lòng Vượt Lại Link:', link_key_4m)
                         elif choice == "2":  # Kiểm tra chuỗi "2"
-                            print(url)
                             yeumoney_future = executor.submit(get_shortened_link_phu, url)
                             yeumoney_data = yeumoney_future.result()
                             if yeumoney_data and yeumoney_data.get('status') == "error":
@@ -266,45 +265,39 @@ def main():
                                 else:
                                     print('\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mKey Sai Vui Lòng Vượt Lại Link:', link_key_4m)
                         elif choice == "3":  # Kiểm tra chuỗi "2"
-                            print(url)
                             yeumoney_future = executor.submit(get_shortened_link_phu, url)
                             yeumoney_data = yeumoney_future.result()
                             if yeumoney_data and yeumoney_data.get('status') == "error":
                                 print(yeumoney_data.get('message'))
                                 return
                             else:
-                                link_key = yeumoney_data.get('shortenedUrl')
-                                token_8link = '8c72127ca7e74ebd4b963be7d3cc9f75f4ddd4ead4ee121d9b6ba28a4dfa991b'
-                                link8_response = requests.get(f'https://partner.8link.io/api/public/gen-shorten-link?apikey={token_8link}&format=json&url={link_key}&target_domain=https://8link.io')
+                                link_key_yeumoney = yeumoney_data.get('shortenedUrl')
+                                token_link4m = 'f7e85811bc83948a0a66e121fa312afc03472eabd86a53c4bc9ec86662a480c8'
+                                link4m_response = requests.get(f'https://yeumoney.com/QL_api.php?token={token_link4m}&format=json&url={link_key_yeumoney}')
                                 print("\033[1;31mLưu Ý: \033[1;33mTool Free Nhé Cả Nhà Yêu \033[1;91m❣\033[1;32m")
-                                if link8_response.status_code == 200:
-                                    link8_data = link8_response.json()
-                                    if link8_data.get('status') == "error":
-                                        print(link8_data.get('message'))
-                                        quit()
+                                
+                                if link4m_response.status_code == 200:
+                                    link4m_data = link4m_response.json()
+                                    if link4m_data.get('status') == "error":
+                                        print(link4m_data.get('message'))
+                                        return
                                     else:
-                                        link_key_8link = link8_data.get('shortened_url')
-                                        link_redirect = requests.get(f'https://dilink.net/api_dr_pt.php?token=7547feb041956891c2e2c2d5ca29080039c12b4ed7fa4c4273a85ba17bb5bc87&url={link_key_8link}&url_phu={link_key}')
-                                        if link_redirect.status_code == 200:
-                                            link_redirect_data = link_redirect.json()
-                                            # print(link_redirect_data)
-                                            print('\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mLink Để Vượt Key Là:', link_redirect_data['url_direct'])
-                                        else:
-                                            print('Không thể kết nối đến dịch vụ rút gọn URL')
-                                            return    
+                                        link_key_4m = link4m_data.get('shortenedUrl')
+                                        print('\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mLink Để Vượt Key Là:', link_key_4m)
                                 else:
                                     print('Không thể kết nối đến dịch vụ rút gọn URL')
                                     return
+                        
                             while True:
-                                keynhap = input('\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mKey Đã Vượt Là: ')
+                                keynhap = input('Key Đã Vượt Là: ')
                                 if keynhap == key:
                                     print('Key Đúng Mời Bạn Dùng Tool')
                                     sleep(2)
                                     luu_thong_tin_ip(ip_address, keynhap, expiration_date)
                                     return  # Thoát khỏi vòng lặp và hàm main
                                 else:
-                                    print('\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mKey Sai Vui Lòng Vượt Lại Link:', link_redirect_data['url_direct'])
-                        else:
+                                    print('\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;36m✈  \033[1;32mKey Sai Vui Lòng Vượt Lại Link:', link_key_4m)
+                        elif choice == "2":  # Kiểm tra chuỗi "2"
                             # Nếu người dùng nhập không phải 1 hoặc 2, yêu cầu nhập lại
                             banner()
                             print("\033[1;97m[\033[1;91m❣\033[1;97m] \033[1;91m✈  Lựa chọn không hợp lệ. Vui lòng chọn lại.")
